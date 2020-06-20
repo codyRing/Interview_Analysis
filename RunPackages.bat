@@ -1,0 +1,5 @@
+"C:\Program Files\Microsoft SQL Server\120\DTS\Binn\DTExec.exe" /F ".\Load-Assets.DTSX" 
+"C:\Program Files\Microsoft SQL Server\120\DTS\Binn\DTExec.exe" /F ".\Load-Incidents.DTSX" 
+"C:\Program Files\Microsoft SQL Server\120\DTS\Binn\DTExec.exe" /F ".\Load-Applications.DTSX" 
+"C:\Program Files\Microsoft SQL Server\120\DTS\Binn\DTExec.exe" /F ".\Load-Active_Apps.DTSX" 
+"C:\Program Files\Microsoft SQL Server\120\DTS\Binn\DTExec.exe" /F ".\Load-Security_Assesments.DTSX" 

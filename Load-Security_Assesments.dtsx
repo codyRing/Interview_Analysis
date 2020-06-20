@@ -1,0 +1,1573 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/20/2020 2:02:57 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="ATL1-SQL02"
+  DTS:CreatorName="VIMO\ringrissler_c"
+  DTS:Description="SSIS Package Description"
+  DTS:DTSID="{963C0F06-D5DE-465D-8803-6DEA8C32F641}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="12.0.5000.0"
+  DTS:LocaleID="1033"
+  DTS:MaxErrorCount="0"
+  DTS:ObjectName="Load-Security_Assesments"
+  DTS:VersionGUID="{9F21BCFB-79BF-43B8-AC6A-C26C1D53AD95}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{C228824B-F580-44B8-B775-BA2494D37CC3}"
+      DTS:ObjectName="DestinationConnectionOLEDB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=ATL1-SQL02;Initial Catalog=RAS_APR_Reconciliation;Provider=SQLNCLI11;Integrated Security=SSPI;Auto Translate=false;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SourceConnectionFlatFile]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{009F2D42-0688-45C3-9681-ACBB22D1C0A5}"
+      DTS:ObjectName="SourceConnectionFlatFile">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x0022_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="L:\RAS\Projects\RAS_Operations\Interview_Analysis\Security_Assessments.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Assessment_ID"
+              DTS:DTSID="{46194A4C-4E5E-4C8F-B5F2-B1B4D036909D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Application_ID"
+              DTS:DTSID="{71F86F96-E17B-498D-85EE-6AC10D4EDE71}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Application_Key"
+              DTS:DTSID="{5A1C9C89-8BA8-4AC1-AEAD-01077C9C38BE}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Engagement_ID"
+              DTS:DTSID="{380EE3B0-750B-4868-89FD-E854C3632FD5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Assessment_Category"
+              DTS:DTSID="{1F237D97-8746-4FED-AB22-AB84207B4DED}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Assessment_Effort_Hours"
+              DTS:DTSID="{E55F9950-6C62-4D69-9BF1-4794933A9723}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Assessment_Start_Datetime"
+              DTS:DTSID="{CC105A82-BB27-462F-9393-DB31D5F181FE}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Assessment_Team"
+              DTS:DTSID="{4D6C194A-6825-476F-A43A-3583AE77926E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Assessment_Type"
+              DTS:DTSID="{5552232F-C522-48EF-921D-EB29A35AB885}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Assessor_Role"
+              DTS:DTSID="{D4E7EEED-A382-4CAD-A584-1548785443F6}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Assignment_Datetime"
+              DTS:DTSID="{1FD25D8F-2827-465D-B387-86A3F14238EC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Completion_Datetime"
+              DTS:DTSID="{DDECC3D6-54F1-49CA-B022-78FCB8B42212}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Decision"
+              DTS:DTSID="{F77623B1-58F7-43D9-8B8D-37B80365C18A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Due_Datetime"
+              DTS:DTSID="{1FD458A0-0062-4DB4-AD33-09B52C8F549E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Employee_Type"
+              DTS:DTSID="{5FCBFFCB-8399-42DD-9B45-2A1449E3D384}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Created_Datetime"
+              DTS:DTSID="{48F985C3-1085-458C-BE6F-B7B7759E3395}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Is_Active"
+              DTS:DTSID="{C91A363A-CDEA-4379-84FA-4FCA67C35284}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Is_Current_Go_Live"
+              DTS:DTSID="{D46FB4E5-B78B-4348-8444-D47269CFF005}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Is_First_Go_Live"
+              DTS:DTSID="{3C6283ED-7672-4D9B-8379-AB5DB773AD9E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Role"
+              DTS:DTSID="{48D9169D-38FC-4D13-B1CB-BACE0EE05A61}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Status"
+              DTS:DTSID="{4E4EF2B7-DECD-4372-96DA-4A1D0E16EE37}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Task_Weight"
+              DTS:DTSID="{5F2BCF2B-A87F-40F8-B110-559C6B65D850}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Team"
+              DTS:DTSID="{6FBEAAF1-9F81-46B5-9438-08B15ED39B43}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Artifact_Count"
+              DTS:DTSID="{65E4AE19-9471-4B9C-BBBB-689285BCBD71}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Staleness_Range"
+              DTS:DTSID="{04191B7C-3B54-4431-85EC-F7126AE756DD}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Staleness_Range_Sequence"
+              DTS:DTSID="{8D41DAAB-79F8-48A4-BDE3-D714E48D96E5}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task 1"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:DTSID="{797F68D7-6A16-40B0-8304-C42C3B533B74}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:FailPackageOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task 1"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          defaultBufferSize="3145728"
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task 1\Destination - Security_Assessments"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Destination - Security_Assessments"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Security_Assessments]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task 1\Destination - Security_Assessments.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task 1\Destination - Security_Assessments.Inputs[Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Security_Assessments.Inputs[Destination Input].Columns[Assessment_ID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="Assessment_ID"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Security_Assessments.Inputs[Destination Input].ExternalColumns[Assessment_ID]"
+                      lineageId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].Columns[Assessment_ID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Security_Assessments.Inputs[Destination Input].Columns[Application_ID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="Application_ID"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Security_Assessments.Inputs[Destination Input].ExternalColumns[Application_ID]"
+                      lineageId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].Columns[Application_ID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Security_Assessments.Inputs[Destination Input].Columns[Application_Key]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="Application_Key"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Security_Assessments.Inputs[Destination Input].ExternalColumns[Application_Key]"
+                      lineageId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].Columns[Application_Key]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Security_Assessments.Inputs[Destination Input].Columns[Engagement_ID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="Engagement_ID"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Security_Assessments.Inputs[Destination Input].ExternalColumns[Engagement_ID]"
+                      lineageId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].Columns[Engagement_ID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Security_Assessments.Inputs[Destination Input].Columns[Assessment_Category]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="Assessment_Category"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Security_Assessments.Inputs[Destination Input].ExternalColumns[Assessment_Category]"
+                      lineageId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].Columns[Assessment_Category]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Security_Assessments.Inputs[Destination Input].Columns[Assessment_Effort_Hours]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="Assessment_Effort_Hours"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Security_Assessments.Inputs[Destination Input].ExternalColumns[Assessment_Effort_Hours]"
+                      lineageId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].Columns[Assessment_Effort_Hours]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Security_Assessments.Inputs[Destination Input].Columns[Assessment_Start_Datetime]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="Assessment_Start_Datetime"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Security_Assessments.Inputs[Destination Input].ExternalColumns[Assessment_Start_Datetime]"
+                      lineageId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].Columns[Assessment_Start_Datetime]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Security_Assessments.Inputs[Destination Input].Columns[Assessment_Team]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="Assessment_Team"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Security_Assessments.Inputs[Destination Input].ExternalColumns[Assessment_Team]"
+                      lineageId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].Columns[Assessment_Team]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Security_Assessments.Inputs[Destination Input].Columns[Assessment_Type]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="Assessment_Type"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Security_Assessments.Inputs[Destination Input].ExternalColumns[Assessment_Type]"
+                      lineageId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].Columns[Assessment_Type]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Security_Assessments.Inputs[Destination Input].Columns[Assessor_Role]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="Assessor_Role"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Security_Assessments.Inputs[Destination Input].ExternalColumns[Assessor_Role]"
+                      lineageId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].Columns[Assessor_Role]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Security_Assessments.Inputs[Destination Input].Columns[Assignment_Datetime]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="Assignment_Datetime"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Security_Assessments.Inputs[Destination Input].ExternalColumns[Assignment_Datetime]"
+                      lineageId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].Columns[Assignment_Datetime]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Security_Assessments.Inputs[Destination Input].Columns[Completion_Datetime]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="Completion_Datetime"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Security_Assessments.Inputs[Destination Input].ExternalColumns[Completion_Datetime]"
+                      lineageId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].Columns[Completion_Datetime]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Security_Assessments.Inputs[Destination Input].Columns[Decision]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="Decision"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Security_Assessments.Inputs[Destination Input].ExternalColumns[Decision]"
+                      lineageId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].Columns[Decision]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Security_Assessments.Inputs[Destination Input].Columns[Due_Datetime]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="Due_Datetime"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Security_Assessments.Inputs[Destination Input].ExternalColumns[Due_Datetime]"
+                      lineageId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].Columns[Due_Datetime]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Security_Assessments.Inputs[Destination Input].Columns[Employee_Type]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="Employee_Type"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Security_Assessments.Inputs[Destination Input].ExternalColumns[Employee_Type]"
+                      lineageId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].Columns[Employee_Type]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Security_Assessments.Inputs[Destination Input].Columns[Created_Datetime]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="Created_Datetime"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Security_Assessments.Inputs[Destination Input].ExternalColumns[Created_Datetime]"
+                      lineageId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].Columns[Created_Datetime]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Security_Assessments.Inputs[Destination Input].Columns[Is_Active]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="Is_Active"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Security_Assessments.Inputs[Destination Input].ExternalColumns[Is_Active]"
+                      lineageId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].Columns[Is_Active]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Security_Assessments.Inputs[Destination Input].Columns[Is_Current_Go_Live]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="Is_Current_Go_Live"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Security_Assessments.Inputs[Destination Input].ExternalColumns[Is_Current_Go_Live]"
+                      lineageId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].Columns[Is_Current_Go_Live]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Security_Assessments.Inputs[Destination Input].Columns[Is_First_Go_Live]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="Is_First_Go_Live"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Security_Assessments.Inputs[Destination Input].ExternalColumns[Is_First_Go_Live]"
+                      lineageId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].Columns[Is_First_Go_Live]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Security_Assessments.Inputs[Destination Input].Columns[Role]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="Role"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Security_Assessments.Inputs[Destination Input].ExternalColumns[Role]"
+                      lineageId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].Columns[Role]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Security_Assessments.Inputs[Destination Input].Columns[Status]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="Status"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Security_Assessments.Inputs[Destination Input].ExternalColumns[Status]"
+                      lineageId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].Columns[Status]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Security_Assessments.Inputs[Destination Input].Columns[Task_Weight]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="Task_Weight"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Security_Assessments.Inputs[Destination Input].ExternalColumns[Task_Weight]"
+                      lineageId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].Columns[Task_Weight]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Security_Assessments.Inputs[Destination Input].Columns[Team]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="Team"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Security_Assessments.Inputs[Destination Input].ExternalColumns[Team]"
+                      lineageId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].Columns[Team]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Security_Assessments.Inputs[Destination Input].Columns[Artifact_Count]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="Artifact_Count"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Security_Assessments.Inputs[Destination Input].ExternalColumns[Artifact_Count]"
+                      lineageId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].Columns[Artifact_Count]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Security_Assessments.Inputs[Destination Input].Columns[Staleness_Range]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="Staleness_Range"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Security_Assessments.Inputs[Destination Input].ExternalColumns[Staleness_Range]"
+                      lineageId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].Columns[Staleness_Range]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Security_Assessments.Inputs[Destination Input].Columns[Staleness_Range_Sequence]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="Staleness_Range_Sequence"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Security_Assessments.Inputs[Destination Input].ExternalColumns[Staleness_Range_Sequence]"
+                      lineageId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].Columns[Staleness_Range_Sequence]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Security_Assessments.Inputs[Destination Input].ExternalColumns[Assessment_ID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Assessment_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Security_Assessments.Inputs[Destination Input].ExternalColumns[Application_ID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Application_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Security_Assessments.Inputs[Destination Input].ExternalColumns[Application_Key]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Application_Key" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Security_Assessments.Inputs[Destination Input].ExternalColumns[Engagement_ID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Engagement_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Security_Assessments.Inputs[Destination Input].ExternalColumns[Assessment_Category]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Assessment_Category" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Security_Assessments.Inputs[Destination Input].ExternalColumns[Assessment_Effort_Hours]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Assessment_Effort_Hours" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Security_Assessments.Inputs[Destination Input].ExternalColumns[Assessment_Start_Datetime]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Assessment_Start_Datetime" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Security_Assessments.Inputs[Destination Input].ExternalColumns[Assessment_Team]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Assessment_Team" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Security_Assessments.Inputs[Destination Input].ExternalColumns[Assessment_Type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Assessment_Type" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Security_Assessments.Inputs[Destination Input].ExternalColumns[Assessor_Role]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Assessor_Role" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Security_Assessments.Inputs[Destination Input].ExternalColumns[Assignment_Datetime]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Assignment_Datetime" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Security_Assessments.Inputs[Destination Input].ExternalColumns[Completion_Datetime]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Completion_Datetime" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Security_Assessments.Inputs[Destination Input].ExternalColumns[Decision]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Decision" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Security_Assessments.Inputs[Destination Input].ExternalColumns[Due_Datetime]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Due_Datetime" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Security_Assessments.Inputs[Destination Input].ExternalColumns[Employee_Type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Employee_Type" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Security_Assessments.Inputs[Destination Input].ExternalColumns[Created_Datetime]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Created_Datetime" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Security_Assessments.Inputs[Destination Input].ExternalColumns[Is_Active]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Is_Active" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Security_Assessments.Inputs[Destination Input].ExternalColumns[Is_Current_Go_Live]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Is_Current_Go_Live" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Security_Assessments.Inputs[Destination Input].ExternalColumns[Is_First_Go_Live]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Is_First_Go_Live" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Security_Assessments.Inputs[Destination Input].ExternalColumns[Role]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Role" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Security_Assessments.Inputs[Destination Input].ExternalColumns[Status]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Status" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Security_Assessments.Inputs[Destination Input].ExternalColumns[Task_Weight]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Task_Weight" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Security_Assessments.Inputs[Destination Input].ExternalColumns[Team]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Team" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Security_Assessments.Inputs[Destination Input].ExternalColumns[Artifact_Count]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Artifact_Count" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Security_Assessments.Inputs[Destination Input].ExternalColumns[Staleness_Range]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Staleness_Range" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Security_Assessments.Inputs[Destination Input].ExternalColumns[Staleness_Range_Sequence]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Staleness_Range_Sequence" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task 1\Destination - Security_Assessments.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task 1\Destination - Security_Assessments.Inputs[Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Destination - Security_Assessments.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Destination - Security_Assessments.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Destination - Security_Assessments.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Destination - Security_Assessments.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task 1\Source - Security_Assessments_csv"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="Source - Security_Assessments_csv"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SourceConnectionFlatFile]"
+                  connectionManagerRefId="Package.ConnectionManagers[SourceConnectionFlatFile]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].Columns[Assessment_ID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].ExternalColumns[Assessment_ID]"
+                      length="500"
+                      lineageId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].Columns[Assessment_ID]"
+                      name="Assessment_ID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].Columns[Application_ID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].ExternalColumns[Application_ID]"
+                      length="500"
+                      lineageId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].Columns[Application_ID]"
+                      name="Application_ID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].Columns[Application_Key]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].ExternalColumns[Application_Key]"
+                      length="500"
+                      lineageId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].Columns[Application_Key]"
+                      name="Application_Key"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].Columns[Engagement_ID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].ExternalColumns[Engagement_ID]"
+                      length="500"
+                      lineageId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].Columns[Engagement_ID]"
+                      name="Engagement_ID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].Columns[Assessment_Category]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].ExternalColumns[Assessment_Category]"
+                      length="500"
+                      lineageId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].Columns[Assessment_Category]"
+                      name="Assessment_Category"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].Columns[Assessment_Effort_Hours]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].ExternalColumns[Assessment_Effort_Hours]"
+                      length="500"
+                      lineageId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].Columns[Assessment_Effort_Hours]"
+                      name="Assessment_Effort_Hours"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].Columns[Assessment_Start_Datetime]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].ExternalColumns[Assessment_Start_Datetime]"
+                      length="500"
+                      lineageId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].Columns[Assessment_Start_Datetime]"
+                      name="Assessment_Start_Datetime"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].Columns[Assessment_Team]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].ExternalColumns[Assessment_Team]"
+                      length="500"
+                      lineageId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].Columns[Assessment_Team]"
+                      name="Assessment_Team"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].Columns[Assessment_Type]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].ExternalColumns[Assessment_Type]"
+                      length="500"
+                      lineageId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].Columns[Assessment_Type]"
+                      name="Assessment_Type"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].Columns[Assessor_Role]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].ExternalColumns[Assessor_Role]"
+                      length="500"
+                      lineageId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].Columns[Assessor_Role]"
+                      name="Assessor_Role"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].Columns[Assignment_Datetime]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].ExternalColumns[Assignment_Datetime]"
+                      length="500"
+                      lineageId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].Columns[Assignment_Datetime]"
+                      name="Assignment_Datetime"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].Columns[Completion_Datetime]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].ExternalColumns[Completion_Datetime]"
+                      length="500"
+                      lineageId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].Columns[Completion_Datetime]"
+                      name="Completion_Datetime"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].Columns[Decision]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].ExternalColumns[Decision]"
+                      length="500"
+                      lineageId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].Columns[Decision]"
+                      name="Decision"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].Columns[Due_Datetime]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].ExternalColumns[Due_Datetime]"
+                      length="500"
+                      lineageId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].Columns[Due_Datetime]"
+                      name="Due_Datetime"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].Columns[Employee_Type]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].ExternalColumns[Employee_Type]"
+                      length="500"
+                      lineageId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].Columns[Employee_Type]"
+                      name="Employee_Type"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].Columns[Created_Datetime]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].ExternalColumns[Created_Datetime]"
+                      length="500"
+                      lineageId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].Columns[Created_Datetime]"
+                      name="Created_Datetime"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].Columns[Is_Active]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].ExternalColumns[Is_Active]"
+                      length="500"
+                      lineageId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].Columns[Is_Active]"
+                      name="Is_Active"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].Columns[Is_Current_Go_Live]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].ExternalColumns[Is_Current_Go_Live]"
+                      length="500"
+                      lineageId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].Columns[Is_Current_Go_Live]"
+                      name="Is_Current_Go_Live"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].Columns[Is_First_Go_Live]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].ExternalColumns[Is_First_Go_Live]"
+                      length="500"
+                      lineageId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].Columns[Is_First_Go_Live]"
+                      name="Is_First_Go_Live"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].Columns[Role]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].ExternalColumns[Role]"
+                      length="500"
+                      lineageId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].Columns[Role]"
+                      name="Role"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].Columns[Status]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].ExternalColumns[Status]"
+                      length="500"
+                      lineageId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].Columns[Status]"
+                      name="Status"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].Columns[Task_Weight]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].ExternalColumns[Task_Weight]"
+                      length="500"
+                      lineageId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].Columns[Task_Weight]"
+                      name="Task_Weight"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].Columns[Team]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].ExternalColumns[Team]"
+                      length="500"
+                      lineageId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].Columns[Team]"
+                      name="Team"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].Columns[Artifact_Count]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].ExternalColumns[Artifact_Count]"
+                      length="500"
+                      lineageId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].Columns[Artifact_Count]"
+                      name="Artifact_Count"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].Columns[Staleness_Range]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].ExternalColumns[Staleness_Range]"
+                      length="500"
+                      lineageId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].Columns[Staleness_Range]"
+                      name="Staleness_Range"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].Columns[Staleness_Range_Sequence]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].ExternalColumns[Staleness_Range_Sequence]"
+                      length="500"
+                      lineageId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].Columns[Staleness_Range_Sequence]"
+                      name="Staleness_Range_Sequence"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].ExternalColumns[Assessment_ID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Assessment_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].ExternalColumns[Application_ID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Application_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].ExternalColumns[Application_Key]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Application_Key" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].ExternalColumns[Engagement_ID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Engagement_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].ExternalColumns[Assessment_Category]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Assessment_Category" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].ExternalColumns[Assessment_Effort_Hours]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Assessment_Effort_Hours" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].ExternalColumns[Assessment_Start_Datetime]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Assessment_Start_Datetime" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].ExternalColumns[Assessment_Team]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Assessment_Team" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].ExternalColumns[Assessment_Type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Assessment_Type" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].ExternalColumns[Assessor_Role]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Assessor_Role" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].ExternalColumns[Assignment_Datetime]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Assignment_Datetime" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].ExternalColumns[Completion_Datetime]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Completion_Datetime" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].ExternalColumns[Decision]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Decision" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].ExternalColumns[Due_Datetime]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Due_Datetime" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].ExternalColumns[Employee_Type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Employee_Type" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].ExternalColumns[Created_Datetime]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Created_Datetime" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].ExternalColumns[Is_Active]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Is_Active" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].ExternalColumns[Is_Current_Go_Live]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Is_Current_Go_Live" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].ExternalColumns[Is_First_Go_Live]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Is_First_Go_Live" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].ExternalColumns[Role]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Role" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].ExternalColumns[Status]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Status" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].ExternalColumns[Task_Weight]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Task_Weight" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].ExternalColumns[Team]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Team" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].ExternalColumns[Artifact_Count]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Artifact_Count" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].ExternalColumns[Staleness_Range]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Staleness_Range" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output].ExternalColumns[Staleness_Range_Sequence]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Staleness_Range_Sequence" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Task 1.Paths[Flat File Source Output]"
+              endId="Package\Data Flow Task 1\Destination - Security_Assessments.Inputs[Destination Input]"
+              name="Flat File Source Output"
+              startId="Package\Data Flow Task 1\Source - Security_Assessments_csv.Outputs[Flat File Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+</DTS:Executable>

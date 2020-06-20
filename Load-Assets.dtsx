@@ -1,0 +1,1879 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/20/2020 2:10:58 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="ATL1-SQL02"
+  DTS:CreatorName="VIMO\ringrissler_c"
+  DTS:Description="SSIS Package Description"
+  DTS:DTSID="{2AE27F54-B196-49A9-B260-315AB9ACD426}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="12.0.5000.0"
+  DTS:LocaleID="1033"
+  DTS:MaxErrorCount="0"
+  DTS:ObjectName="Load-Assets"
+  DTS:VersionGUID="{6C49C511-8534-4305-ABDC-497A552FFA04}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{0C0EBA6F-71DD-42D2-839A-4EAB4D35113E}"
+      DTS:ObjectName="DestinationConnectionOLEDB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=ATL1-SQL02;Initial Catalog=RAS_APR_Reconciliation;Provider=SQLNCLI11;Integrated Security=SSPI;Auto Translate=false;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SourceConnectionFlatFile]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{D4BB4427-23E3-4657-86A7-E696063B36E7}"
+      DTS:ObjectName="SourceConnectionFlatFile">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x0022_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="L:\RAS\Projects\RAS_Operations\Interview_Analysis\Assets.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Source_ID"
+              DTS:DTSID="{32F445CF-CEBF-43E6-9403-A4FA18D97B22}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Source"
+              DTS:DTSID="{1F41EC88-4B8E-452B-A699-4D00AA239427}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Application_Key"
+              DTS:DTSID="{1993BC37-A556-447D-BA26-8DC07D6D4F28}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Hrtst_Name"
+              DTS:DTSID="{ADEC6E18-535D-49E6-8B79-9FA3DAB714D4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Asset"
+              DTS:DTSID="{08BF9A92-085D-43A0-8F8E-3338D95EB8F5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Discovery_Source"
+              DTS:DTSID="{EACED6E6-6ED4-47E9-BEF0-C9B5B2811E65}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Assignment_Group"
+              DTS:DTSID="{E114730D-6E70-483C-8A37-285B5FE8118F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Category"
+              DTS:DTSID="{EE3F0B51-9226-4316-8469-C84AD295A71E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Company"
+              DTS:DTSID="{72A8005D-1CEB-4828-BACD-929F7C2F000D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Manufacturer"
+              DTS:DTSID="{662B6F1E-4EF9-4C5B-9ABB-A63A4406EEE8}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Default_Gateway"
+              DTS:DTSID="{66272AE4-680F-4883-AEED-B33F97A0109C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="IP_Address"
+              DTS:DTSID="{168EDE9F-56AD-4DD0-A247-6052C42C2024}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Install_Status"
+              DTS:DTSID="{DF525830-CC11-4E59-9001-1750E03097F3}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Location"
+              DTS:DTSID="{603052E3-D400-4B0F-89E0-0A4D5C751F9A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="OS"
+              DTS:DTSID="{540CC126-6294-42F5-9FC0-86E0D7B970B8}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="OS_Version"
+              DTS:DTSID="{3BC701A7-8650-45E8-AFE5-F29D14AD7F40}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Subcategory"
+              DTS:DTSID="{27DCE88E-51B8-4C03-A703-879BD2E93C16}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Class_Name"
+              DTS:DTSID="{34725B01-A6E8-41F6-9F67-BB7A5F184FB9}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Used_For"
+              DTS:DTSID="{3BE69D1E-11AF-442D-BD46-96BF47BEC901}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Business_Service_Link"
+              DTS:DTSID="{4B390C85-6281-448C-AC25-D4917BF36ED5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Critical_Business_Asset"
+              DTS:DTSID="{1EAF93DB-D4DB-47C2-8A80-AEF56AB95148}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Critical_Infrastructure_CI"
+              DTS:DTSID="{0E0FA446-5197-4BF7-89C5-8413A188ECF9}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Critical_Security_CI"
+              DTS:DTSID="{DD9D981C-8EF6-4510-85DF-6F56E211AE33}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Patching_Director"
+              DTS:DTSID="{86230803-D0EF-4060-ACA6-A6BE2F4E2429}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="PCI_Control"
+              DTS:DTSID="{43B9A459-0049-4CC8-8082-E908661F8071}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CPNI_Control"
+              DTS:DTSID="{EBFA4502-A2A2-45B7-A669-A738A0176843}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Sox_Control"
+              DTS:DTSID="{1AFC18C8-9F2E-4E59-9433-3DE7C7AD32AE}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Virtual"
+              DTS:DTSID="{3A2D8BF3-23F5-4149-B213-36E1E41E119D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Network"
+              DTS:DTSID="{0FE29B88-A470-420D-BE99-31DF672B59D6}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Platform"
+              DTS:DTSID="{5FA3904A-A5B5-4C15-9359-B565B4A5CA35}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Interface"
+              DTS:DTSID="{889DBC07-A872-4843-B7BE-87595F55E9AA}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Area"
+              DTS:DTSID="{D093EC81-F558-47C3-8FCD-91110A31C2E7}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task 1"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:DTSID="{12BAF9B2-0591-4955-9C87-3328E047120D}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:FailPackageOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task 1"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          defaultBufferSize="3145728"
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task 1\Destination - Assets"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Destination - Assets"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Assets]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task 1\Destination - Assets.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task 1\Destination - Assets.Inputs[Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Assets.Inputs[Destination Input].Columns[Source_ID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="Source_ID"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Assets.Inputs[Destination Input].ExternalColumns[Source_ID]"
+                      lineageId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].Columns[Source_ID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Assets.Inputs[Destination Input].Columns[Source]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="Source"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Assets.Inputs[Destination Input].ExternalColumns[Source]"
+                      lineageId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].Columns[Source]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Assets.Inputs[Destination Input].Columns[Application_Key]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="Application_Key"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Assets.Inputs[Destination Input].ExternalColumns[Application_Key]"
+                      lineageId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].Columns[Application_Key]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Assets.Inputs[Destination Input].Columns[Hrtst_Name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="Hrtst_Name"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Assets.Inputs[Destination Input].ExternalColumns[Hrtst_Name]"
+                      lineageId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].Columns[Hrtst_Name]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Assets.Inputs[Destination Input].Columns[Asset]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="Asset"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Assets.Inputs[Destination Input].ExternalColumns[Asset]"
+                      lineageId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].Columns[Asset]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Assets.Inputs[Destination Input].Columns[Discovery_Source]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="Discovery_Source"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Assets.Inputs[Destination Input].ExternalColumns[Discovery_Source]"
+                      lineageId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].Columns[Discovery_Source]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Assets.Inputs[Destination Input].Columns[Assignment_Group]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="Assignment_Group"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Assets.Inputs[Destination Input].ExternalColumns[Assignment_Group]"
+                      lineageId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].Columns[Assignment_Group]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Assets.Inputs[Destination Input].Columns[Category]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="Category"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Assets.Inputs[Destination Input].ExternalColumns[Category]"
+                      lineageId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].Columns[Category]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Assets.Inputs[Destination Input].Columns[Company]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="Company"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Assets.Inputs[Destination Input].ExternalColumns[Company]"
+                      lineageId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].Columns[Company]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Assets.Inputs[Destination Input].Columns[Manufacturer]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="Manufacturer"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Assets.Inputs[Destination Input].ExternalColumns[Manufacturer]"
+                      lineageId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].Columns[Manufacturer]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Assets.Inputs[Destination Input].Columns[Default_Gateway]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="Default_Gateway"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Assets.Inputs[Destination Input].ExternalColumns[Default_Gateway]"
+                      lineageId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].Columns[Default_Gateway]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Assets.Inputs[Destination Input].Columns[IP_Address]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="IP_Address"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Assets.Inputs[Destination Input].ExternalColumns[IP_Address]"
+                      lineageId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].Columns[IP_Address]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Assets.Inputs[Destination Input].Columns[Install_Status]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="Install_Status"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Assets.Inputs[Destination Input].ExternalColumns[Install_Status]"
+                      lineageId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].Columns[Install_Status]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Assets.Inputs[Destination Input].Columns[Location]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="Location"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Assets.Inputs[Destination Input].ExternalColumns[Location]"
+                      lineageId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].Columns[Location]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Assets.Inputs[Destination Input].Columns[OS]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="OS"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Assets.Inputs[Destination Input].ExternalColumns[OS]"
+                      lineageId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].Columns[OS]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Assets.Inputs[Destination Input].Columns[OS_Version]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="OS_Version"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Assets.Inputs[Destination Input].ExternalColumns[OS_Version]"
+                      lineageId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].Columns[OS_Version]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Assets.Inputs[Destination Input].Columns[Subcategory]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="Subcategory"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Assets.Inputs[Destination Input].ExternalColumns[Subcategory]"
+                      lineageId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].Columns[Subcategory]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Assets.Inputs[Destination Input].Columns[Class_Name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="Class_Name"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Assets.Inputs[Destination Input].ExternalColumns[Class_Name]"
+                      lineageId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].Columns[Class_Name]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Assets.Inputs[Destination Input].Columns[Used_For]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="Used_For"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Assets.Inputs[Destination Input].ExternalColumns[Used_For]"
+                      lineageId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].Columns[Used_For]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Assets.Inputs[Destination Input].Columns[Business_Service_Link]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="Business_Service_Link"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Assets.Inputs[Destination Input].ExternalColumns[Business_Service_Link]"
+                      lineageId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].Columns[Business_Service_Link]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Assets.Inputs[Destination Input].Columns[Critical_Business_Asset]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="Critical_Business_Asset"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Assets.Inputs[Destination Input].ExternalColumns[Critical_Business_Asset]"
+                      lineageId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].Columns[Critical_Business_Asset]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Assets.Inputs[Destination Input].Columns[Critical_Infrastructure_CI]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="Critical_Infrastructure_CI"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Assets.Inputs[Destination Input].ExternalColumns[Critical_Infrastructure_CI]"
+                      lineageId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].Columns[Critical_Infrastructure_CI]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Assets.Inputs[Destination Input].Columns[Critical_Security_CI]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="Critical_Security_CI"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Assets.Inputs[Destination Input].ExternalColumns[Critical_Security_CI]"
+                      lineageId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].Columns[Critical_Security_CI]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Assets.Inputs[Destination Input].Columns[Patching_Director]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="Patching_Director"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Assets.Inputs[Destination Input].ExternalColumns[Patching_Director]"
+                      lineageId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].Columns[Patching_Director]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Assets.Inputs[Destination Input].Columns[PCI_Control]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="PCI_Control"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Assets.Inputs[Destination Input].ExternalColumns[PCI_Control]"
+                      lineageId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].Columns[PCI_Control]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Assets.Inputs[Destination Input].Columns[CPNI_Control]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="CPNI_Control"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Assets.Inputs[Destination Input].ExternalColumns[CPNI_Control]"
+                      lineageId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].Columns[CPNI_Control]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Assets.Inputs[Destination Input].Columns[Sox_Control]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="Sox_Control"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Assets.Inputs[Destination Input].ExternalColumns[Sox_Control]"
+                      lineageId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].Columns[Sox_Control]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Assets.Inputs[Destination Input].Columns[Virtual]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="Virtual"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Assets.Inputs[Destination Input].ExternalColumns[Virtual]"
+                      lineageId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].Columns[Virtual]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Assets.Inputs[Destination Input].Columns[Network]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="Network"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Assets.Inputs[Destination Input].ExternalColumns[Network]"
+                      lineageId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].Columns[Network]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Assets.Inputs[Destination Input].Columns[Platform]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="Platform"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Assets.Inputs[Destination Input].ExternalColumns[Platform]"
+                      lineageId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].Columns[Platform]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Assets.Inputs[Destination Input].Columns[Interface]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="Interface"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Assets.Inputs[Destination Input].ExternalColumns[Interface]"
+                      lineageId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].Columns[Interface]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Assets.Inputs[Destination Input].Columns[Area]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="Area"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Assets.Inputs[Destination Input].ExternalColumns[Area]"
+                      lineageId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].Columns[Area]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Assets.Inputs[Destination Input].ExternalColumns[Source_ID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Source_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Assets.Inputs[Destination Input].ExternalColumns[Source]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Source" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Assets.Inputs[Destination Input].ExternalColumns[Application_Key]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Application_Key" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Assets.Inputs[Destination Input].ExternalColumns[Hrtst_Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Hrtst_Name" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Assets.Inputs[Destination Input].ExternalColumns[Asset]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Asset" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Assets.Inputs[Destination Input].ExternalColumns[Discovery_Source]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Discovery_Source" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Assets.Inputs[Destination Input].ExternalColumns[Assignment_Group]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Assignment_Group" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Assets.Inputs[Destination Input].ExternalColumns[Category]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Category" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Assets.Inputs[Destination Input].ExternalColumns[Company]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Company" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Assets.Inputs[Destination Input].ExternalColumns[Manufacturer]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Manufacturer" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Assets.Inputs[Destination Input].ExternalColumns[Default_Gateway]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Default_Gateway" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Assets.Inputs[Destination Input].ExternalColumns[IP_Address]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="IP_Address" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Assets.Inputs[Destination Input].ExternalColumns[Install_Status]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Install_Status" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Assets.Inputs[Destination Input].ExternalColumns[Location]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Location" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Assets.Inputs[Destination Input].ExternalColumns[OS]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="OS" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Assets.Inputs[Destination Input].ExternalColumns[OS_Version]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="OS_Version" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Assets.Inputs[Destination Input].ExternalColumns[Subcategory]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Subcategory" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Assets.Inputs[Destination Input].ExternalColumns[Class_Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Class_Name" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Assets.Inputs[Destination Input].ExternalColumns[Used_For]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Used_For" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Assets.Inputs[Destination Input].ExternalColumns[Business_Service_Link]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Business_Service_Link" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Assets.Inputs[Destination Input].ExternalColumns[Critical_Business_Asset]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Critical_Business_Asset" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Assets.Inputs[Destination Input].ExternalColumns[Critical_Infrastructure_CI]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Critical_Infrastructure_CI" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Assets.Inputs[Destination Input].ExternalColumns[Critical_Security_CI]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Critical_Security_CI" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Assets.Inputs[Destination Input].ExternalColumns[Patching_Director]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Patching_Director" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Assets.Inputs[Destination Input].ExternalColumns[PCI_Control]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="PCI_Control" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Assets.Inputs[Destination Input].ExternalColumns[CPNI_Control]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="CPNI_Control" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Assets.Inputs[Destination Input].ExternalColumns[Sox_Control]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Sox_Control" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Assets.Inputs[Destination Input].ExternalColumns[Virtual]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Virtual" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Assets.Inputs[Destination Input].ExternalColumns[Network]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Network" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Assets.Inputs[Destination Input].ExternalColumns[Platform]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Platform" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Assets.Inputs[Destination Input].ExternalColumns[Interface]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Interface" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Assets.Inputs[Destination Input].ExternalColumns[Area]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Area" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task 1\Destination - Assets.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task 1\Destination - Assets.Inputs[Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Destination - Assets.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Destination - Assets.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Destination - Assets.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Destination - Assets.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task 1\Source - Assets_csv"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="Source - Assets_csv"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task 1\Source - Assets_csv.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SourceConnectionFlatFile]"
+                  connectionManagerRefId="Package.ConnectionManagers[SourceConnectionFlatFile]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].Columns[Source_ID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].ExternalColumns[Source_ID]"
+                      length="500"
+                      lineageId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].Columns[Source_ID]"
+                      name="Source_ID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].Columns[Source]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].ExternalColumns[Source]"
+                      length="500"
+                      lineageId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].Columns[Source]"
+                      name="Source"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].Columns[Application_Key]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].ExternalColumns[Application_Key]"
+                      length="500"
+                      lineageId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].Columns[Application_Key]"
+                      name="Application_Key"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].Columns[Hrtst_Name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].ExternalColumns[Hrtst_Name]"
+                      length="500"
+                      lineageId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].Columns[Hrtst_Name]"
+                      name="Hrtst_Name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].Columns[Asset]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].ExternalColumns[Asset]"
+                      length="500"
+                      lineageId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].Columns[Asset]"
+                      name="Asset"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].Columns[Discovery_Source]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].ExternalColumns[Discovery_Source]"
+                      length="500"
+                      lineageId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].Columns[Discovery_Source]"
+                      name="Discovery_Source"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].Columns[Assignment_Group]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].ExternalColumns[Assignment_Group]"
+                      length="500"
+                      lineageId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].Columns[Assignment_Group]"
+                      name="Assignment_Group"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].Columns[Category]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].ExternalColumns[Category]"
+                      length="500"
+                      lineageId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].Columns[Category]"
+                      name="Category"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].Columns[Company]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].ExternalColumns[Company]"
+                      length="500"
+                      lineageId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].Columns[Company]"
+                      name="Company"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].Columns[Manufacturer]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].ExternalColumns[Manufacturer]"
+                      length="500"
+                      lineageId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].Columns[Manufacturer]"
+                      name="Manufacturer"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].Columns[Default_Gateway]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].ExternalColumns[Default_Gateway]"
+                      length="500"
+                      lineageId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].Columns[Default_Gateway]"
+                      name="Default_Gateway"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].Columns[IP_Address]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].ExternalColumns[IP_Address]"
+                      length="500"
+                      lineageId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].Columns[IP_Address]"
+                      name="IP_Address"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].Columns[Install_Status]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].ExternalColumns[Install_Status]"
+                      length="500"
+                      lineageId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].Columns[Install_Status]"
+                      name="Install_Status"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].Columns[Location]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].ExternalColumns[Location]"
+                      length="500"
+                      lineageId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].Columns[Location]"
+                      name="Location"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].Columns[OS]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].ExternalColumns[OS]"
+                      length="500"
+                      lineageId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].Columns[OS]"
+                      name="OS"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].Columns[OS_Version]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].ExternalColumns[OS_Version]"
+                      length="500"
+                      lineageId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].Columns[OS_Version]"
+                      name="OS_Version"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].Columns[Subcategory]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].ExternalColumns[Subcategory]"
+                      length="500"
+                      lineageId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].Columns[Subcategory]"
+                      name="Subcategory"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].Columns[Class_Name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].ExternalColumns[Class_Name]"
+                      length="500"
+                      lineageId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].Columns[Class_Name]"
+                      name="Class_Name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].Columns[Used_For]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].ExternalColumns[Used_For]"
+                      length="500"
+                      lineageId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].Columns[Used_For]"
+                      name="Used_For"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].Columns[Business_Service_Link]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].ExternalColumns[Business_Service_Link]"
+                      length="500"
+                      lineageId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].Columns[Business_Service_Link]"
+                      name="Business_Service_Link"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].Columns[Critical_Business_Asset]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].ExternalColumns[Critical_Business_Asset]"
+                      length="500"
+                      lineageId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].Columns[Critical_Business_Asset]"
+                      name="Critical_Business_Asset"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].Columns[Critical_Infrastructure_CI]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].ExternalColumns[Critical_Infrastructure_CI]"
+                      length="500"
+                      lineageId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].Columns[Critical_Infrastructure_CI]"
+                      name="Critical_Infrastructure_CI"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].Columns[Critical_Security_CI]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].ExternalColumns[Critical_Security_CI]"
+                      length="500"
+                      lineageId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].Columns[Critical_Security_CI]"
+                      name="Critical_Security_CI"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].Columns[Patching_Director]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].ExternalColumns[Patching_Director]"
+                      length="500"
+                      lineageId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].Columns[Patching_Director]"
+                      name="Patching_Director"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].Columns[PCI_Control]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].ExternalColumns[PCI_Control]"
+                      length="500"
+                      lineageId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].Columns[PCI_Control]"
+                      name="PCI_Control"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].Columns[CPNI_Control]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].ExternalColumns[CPNI_Control]"
+                      length="500"
+                      lineageId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].Columns[CPNI_Control]"
+                      name="CPNI_Control"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].Columns[Sox_Control]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].ExternalColumns[Sox_Control]"
+                      length="500"
+                      lineageId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].Columns[Sox_Control]"
+                      name="Sox_Control"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].Columns[Virtual]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].ExternalColumns[Virtual]"
+                      length="500"
+                      lineageId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].Columns[Virtual]"
+                      name="Virtual"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].Columns[Network]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].ExternalColumns[Network]"
+                      length="500"
+                      lineageId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].Columns[Network]"
+                      name="Network"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].Columns[Platform]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].ExternalColumns[Platform]"
+                      length="500"
+                      lineageId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].Columns[Platform]"
+                      name="Platform"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].Columns[Interface]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].ExternalColumns[Interface]"
+                      length="500"
+                      lineageId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].Columns[Interface]"
+                      name="Interface"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].Columns[Area]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].ExternalColumns[Area]"
+                      length="500"
+                      lineageId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].Columns[Area]"
+                      name="Area"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].ExternalColumns[Source_ID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Source_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].ExternalColumns[Source]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Source" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].ExternalColumns[Application_Key]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Application_Key" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].ExternalColumns[Hrtst_Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Hrtst_Name" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].ExternalColumns[Asset]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Asset" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].ExternalColumns[Discovery_Source]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Discovery_Source" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].ExternalColumns[Assignment_Group]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Assignment_Group" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].ExternalColumns[Category]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Category" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].ExternalColumns[Company]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Company" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].ExternalColumns[Manufacturer]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Manufacturer" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].ExternalColumns[Default_Gateway]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Default_Gateway" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].ExternalColumns[IP_Address]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="IP_Address" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].ExternalColumns[Install_Status]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Install_Status" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].ExternalColumns[Location]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Location" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].ExternalColumns[OS]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="OS" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].ExternalColumns[OS_Version]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="OS_Version" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].ExternalColumns[Subcategory]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Subcategory" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].ExternalColumns[Class_Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Class_Name" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].ExternalColumns[Used_For]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Used_For" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].ExternalColumns[Business_Service_Link]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Business_Service_Link" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].ExternalColumns[Critical_Business_Asset]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Critical_Business_Asset" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].ExternalColumns[Critical_Infrastructure_CI]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Critical_Infrastructure_CI" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].ExternalColumns[Critical_Security_CI]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Critical_Security_CI" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].ExternalColumns[Patching_Director]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Patching_Director" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].ExternalColumns[PCI_Control]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="PCI_Control" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].ExternalColumns[CPNI_Control]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="CPNI_Control" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].ExternalColumns[Sox_Control]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Sox_Control" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].ExternalColumns[Virtual]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Virtual" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].ExternalColumns[Network]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Network" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].ExternalColumns[Platform]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Platform" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].ExternalColumns[Interface]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Interface" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output].ExternalColumns[Area]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Area" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Task 1.Paths[Flat File Source Output]"
+              endId="Package\Data Flow Task 1\Destination - Assets.Inputs[Destination Input]"
+              name="Flat File Source Output"
+              startId="Package\Data Flow Task 1\Source - Assets_csv.Outputs[Flat File Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+</DTS:Executable>
