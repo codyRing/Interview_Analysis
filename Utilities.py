@@ -1,19 +1,19 @@
 import pandas as pd
 import xlrd
 
-# Sheets = []
-# workbook = xlrd.open_workbook("./data/Analytics Test for Candidates _ Sample Data.xlsx")
-# for sheet_name in workbook.sheet_names():
-#     Sheets.append(sheet_name)
-#
-# for i in Sheets:
-#     # print(i.replace(" ", '_'))
-#     data_xls = pd.read_excel("./data/Analytics Test for Candidates _ Sample Data.xlsx", i, index_Col=None)
-#     data_xls_col = data_xls.columns.str.replace('\s+', '_')
-#     data_xls.columns = data_xls_col
-#     data_xls = data_xls.replace('\n', '', regex=True)
-#     data_xls = data_xls.replace('\r', '', regex=True)
-#     data_xls.to_csv('./data/' + i.replace(" ", '_') + '.csv', encoding='utf-8', index=False)
+Sheets = []
+workbook = xlrd.open_workbook("./data/Analytics Test for Candidates _ Sample Data.xlsx")
+for sheet_name in workbook.sheet_names():
+    Sheets.append(sheet_name)
+
+for i in Sheets:
+    # print(i.replace(" ", '_'))
+    data_xls = pd.read_excel("./data/Analytics Test for Candidates _ Sample Data.xlsx", i, index_Col=None)
+    data_xls_col = data_xls.columns.str.replace('\s+', '_')
+    data_xls.columns = data_xls_col
+    data_xls = data_xls.replace('\n', '', regex=True)
+    data_xls = data_xls.replace('\r', '', regex=True)
+    data_xls.to_csv('./data/' + i.replace(" ", '_') + '.csv', encoding='utf-8', index=False)
 
 
 Assets = pd.read_csv('./Data/Assets.csv')
